@@ -1,0 +1,16 @@
+version: '3.8'
+
+networks:
+  cdistancia_net:
+    driver: bridge
+
+services:
+  aplicacao:
+    image: leandrole8/conversao-distancia:${TAG}
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    ports:
+      - 5000:5000
+    networks:
+      - cdistancia_net
